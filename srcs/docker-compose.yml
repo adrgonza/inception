@@ -1,6 +1,6 @@
-version: '3.8' //specifies the version of the Docker Compose file
+version: '3.8' #specifies the version of the Docker Compose file
 
-services: //define the various containers that make up your application
+services: #define the various containers that make up your application
 
     nginx:
         image: nginx/Dockerfile
