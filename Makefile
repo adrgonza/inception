@@ -1,4 +1,4 @@
 build:
-	docker-compose -f srcs/docker-compose.yml build
+	docker-compose -f src/docker-compose.yml build
 
 .PHONY: build
