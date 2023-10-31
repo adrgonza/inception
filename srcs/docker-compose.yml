@@ -3,9 +3,7 @@ version: '3.8'                              #specifies the version of the Docker
 services:                                   #define the various containers that make up your application
     nginx:                                  #name the container and define it
         build:                              #to build a container with a dockerfile
-            context: ./nginx                #files directory to build container
-            dockerfile: nginx/Dockerfile    #specifies de dockerfile
-        ports: 
+            context: ./nginx                 #files directory to build container
+            dockerfile: ./Dockerfile   #specifies de dockerfile
+        ports:
             - "80:80"                       #host:container
-    db:
-        image: 
