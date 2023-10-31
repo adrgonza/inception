@@ -3,18 +3,18 @@ version: '3.8'                              #specifies the version of the Docker
 services:                                   #define the various containers that make up your application
     nginx:                                  #name the container and define it
         build:                              #to build a container with a dockerfile
-            context: ./Nginx                #files directory to build container
+            context: ./nginx                #files directory to build container
             dockerfile: ./Dockerfile        #specifies de dockerfile
         ports:
             - "80:80"                       #host:container
 
     wordpress:
         build:
-            context: ./Wordpress
+            context: ./wordpress
             dockerfile: ./Dockerfile
 
     mariadb:
         build:
-            context: ./MariaDB
+            context: ./mariadb
             dockerfile: ./Dockerfile
 
