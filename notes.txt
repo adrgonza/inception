@@ -1,0 +1,37 @@
+list of docker containers:
+		docker ps -a		/show the names of all the containers you have + the id you need and the port associated.\
+list of images:
+		docker images
+removing a container or image:
+		docker <image> rm -f "id of the image or container"
+for building from dockerfile:
+		docker build -t "nameYouChoose"
+for running it:
+		docker run "nameYouChoose"
+for running any container:
+		docker run -it --rm "alpine:3.17"
+
+----------------------------------------------------------------------
+
+-Dockerfile-
+
+FROM  - defines a base for your image. exemple : FROM debian
+
+RUN - executes any commands in a new layer on top of the current image and commits the result. RUN also has a shell form for running commands.
+
+WORKDIR - sets the working directory for any RUN, CMD, ENTRYPOINT, COPY, and ADD instructions that follow it in the Dockerfile. (You go directly in the directory you choose)
+
+COPY - copies new files or directories from and adds them to the filesystem of the container at the path .
+
+CMD - lets you define the default program that is run once you start the container based on this image. Each Dockerfile only has one CMD, and only the last CMD instance is respected when multiple ones exist.
+
+----------------------------------------------------------------------
+
+-Makefile Rules for docker compose-
+
+- docker-compose up -d --build, //Create and build all the containers and they still run in the background
+- docker-compose ps, //Check the status for all the containers
+- docker-compose logs -f --tail 5, //see the first 5 lines of the logs of your containers
+- docker-compose stop , //stop a stack of your docker compose
+- Docker-compose down, //destroy all your ressources
+- docker-compose config, //check the syntax of you docker-compose fil
