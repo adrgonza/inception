@@ -5,11 +5,13 @@ build:
 
 prune:
 	docker system prune -f
+	
+stop:
+	docker stop $$(docker ps -a -q)
 
 clean:
-	docker stop $(docker ps -a -q)
-	docker rmi $(docker images -a -q)
-	docker rm -f $(docker ps -a -q)
+	docker rmi $$(docker images -a -q)
+	docker rm -f $$(docker ps -a -q)
 
 images:
 	docker images
