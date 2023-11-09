@@ -10,8 +10,8 @@ stop:
 	docker stop $$(docker ps -a -q)
 
 clean:
-	docker rmi $$(docker images -a -q)
 	docker rm -f $$(docker ps -a -q)
+	docker rmi $$(docker images -a -q)
 
 images:
 	docker images
