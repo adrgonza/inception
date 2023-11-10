@@ -11,6 +11,8 @@ stop:
 
 clean:
 	docker rm -f $$(docker ps -a -q)
+
+cimages:	
 	docker rmi $$(docker images -a -q)
 
 images:

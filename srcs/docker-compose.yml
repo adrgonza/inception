@@ -7,3 +7,7 @@ services:                                   #define the various containers that 
             dockerfile: ./Dockerfile        #specifies de dockerfile
         ports:
             - "80:80"                       #host:container
+    wordpress:
+        build:
+            context: ./requirements/wordpress
+            dockerfile: ./Dockerfile
