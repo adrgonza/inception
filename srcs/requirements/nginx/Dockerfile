@@ -7,5 +7,7 @@ RUN apk add --no-cache nginx openssl
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY tools/index.html /usr/share/nginx/html
 
+EXPOSE 443
+
 # Start Nginx
 CMD ["nginx", "-g", "daemon off;"]

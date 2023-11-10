@@ -2,12 +2,14 @@ version: '3.8'                              #specifies the version of the Docker
 
 services:                                   #define the various containers that make up your application
     nginx:                                  #name the container and define it
+        container_name: "nginx"             #set the container name
         build:                              #to build a container with a dockerfile
             context: ./requirements/nginx   #files directory to build container
             dockerfile: ./Dockerfile        #specifies de dockerfile
         ports:
-            - "80:80"                       #host:container
+            - "443:443"                     #host:container
     wordpress:
+        container_name: "wordpress"
         build:
             context: ./requirements/wordpress
             dockerfile: ./Dockerfile
