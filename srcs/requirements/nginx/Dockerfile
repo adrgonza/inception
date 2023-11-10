@@ -2,7 +2,7 @@
 FROM alpine:3.17
 
 # Update and install necessary packages
-RUN apk add --no-cache nginx openssl
+RUN apk add --no-cache nginx
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY tools/index.html /usr/share/nginx/html
