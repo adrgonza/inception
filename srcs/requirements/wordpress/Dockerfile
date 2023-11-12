@@ -1,5 +1,5 @@
 FROM alpine:3.17
 
-RUN apk add --no-cache php7.3 php-mysqli php-fpm wget sendmail
+RUN apk add --no-cache php php-mysqli php-fpm wget
 
 EXPOSE 9000
