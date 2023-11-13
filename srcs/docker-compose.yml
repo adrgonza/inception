@@ -20,7 +20,7 @@ services:                                   #define the various containers that 
         networks:
             - inception
         depends_on:
-            - wordpress
+            - mariadb
         restart: unless-stopped
 
     mariadb:
@@ -30,14 +30,15 @@ services:                                   #define the various containers that 
             - "3306:3306"
         networks:
             - inception
-        depends_on:
-            - mariadb
         restart: unless-stopped
+
+volumes:
+    wp-db:
+    wp-files:
 
 networks:
     inception:
         driver: bridge
-
 
 #depends_on
 
