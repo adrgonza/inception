@@ -8,6 +8,8 @@ services:                                   #define the various containers that 
             - "443:443"                     #host:container
         networks:
             - inception
+        volumes:
+            - WP
         depends_on:                         #expresa dependencias de inicio y apagado entre servicios.
             - wordpress
         restart: unless-stopped
@@ -33,8 +35,18 @@ services:                                   #define the various containers that 
         restart: unless-stopped
 
 volumes:
-    wp-db:
-    wp-files:
+    WP:
+        driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: /home/adrgonza/data/wp
+    DB:
+        driver: local
+        driver_opts:
+            o: bind
+            type: none
+            device: /home/adrgonza/data/db
 
 networks:
     inception:

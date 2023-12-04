@@ -4,6 +4,8 @@ FROM alpine:3.17
 # Update and install necessary packages
 RUN apk add --no-cache nginx
 
+RUN mkdir -p /run/nginx
+
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 443
