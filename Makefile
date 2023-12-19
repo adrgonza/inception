@@ -29,4 +29,4 @@ status:
 
 .PHONY: build prune clean images status
 
-#$ sudo systemctl start docker
+#$sudo systemctl start docker
