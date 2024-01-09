@@ -1,15 +1,41 @@
-list of docker containers:
-		docker ps -a		/show the names of all the containers you have + the id you need and the port associated.\
-list of images:
-		docker images
-removing a container or image:
-		docker <image> rm -f "id of the image or container"
-for building from dockerfile:
-		docker build -t "nameYouChoose"
-for running it:
-		docker run "nameYouChoose"
-for running any container:
-		docker run -it --rm "alpine:3.17"
+--we are creating a LEMP serveri with Docker:
+Linux (L)
+nGinx (E)
+MySQL (M)
+PHP (P)
+
+--what is docker:
+Containerization technology that enables the creation and use of Linux containers.
+
+
+--what is nginx:
+Popular web server software that efficiently handles the delivery
+of web content, serving as an intermediary
+between clients (like web browsers) and web servers.
+
+
+--what is MySQL:
+Open-source relational database management system (RDBMS) that
+allows users to store, manage, and retrieve data.
+
+
+--what is PHP:
+Widely-used open-source scripting language designed primarily for web development.
+
+
+--how to use docker:
+	list of docker containers:
+					docker ps -a
+	list of images:
+					docker images
+	removing a container or image:
+					docker <image> rm -f "id of the image or container"
+	for building from dockerfile:
+					docker build -t "nameYouChoose" .
+	for running it:
+					docker run "nameYouChoose"
+	for running any container:
+					docker run -it --rm "alpine:3.17"
 
 ----------------------------------------------------------------------
 

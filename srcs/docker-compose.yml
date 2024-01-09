@@ -1,61 +1,49 @@
-version: '3.8'                              #specifies the version of the Docker Compose file
+version: '3.8'
 
-services:                                   #define the various containers that make up your application
-    nginx:                                  #name the container and define it
-        container_name: nginx               #name the container, if not docker uses random namxe
-        build: ./requirements/nginx         #to build a container with a dockerfile
-        ports:
-            - "443:443"                     #host:container
-        networks:
-            - inception
-        volumes:
-            - WP
-        depends_on:                         #expresa dependencias de inicio y apagado entre servicios.
-            - wordpress
-        restart: unless-stopped
+services:
+  nginx:
+    container_name: nginx
+    build: ./requirements/nginx
+    ports:
+      - "443:443"
+    networks:
+      - inception
+    volumes:
+      - WP
+    depends_on:
+      - wordpress
+    restart: unless-stopped
+  
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+    restart: unless-stopped
 
-    wordpress:
-        container_name: wordpress
-        build: ./requirements/wordpress
-        ports:
-            - "9000:9000"
-        networks:
-            - inception
-        depends_on:
-            - mariadb
-        restart: unless-stopped
-
-    mariadb:
-        container_name: mariadb
-        build: ./requirements/mariadb
-        ports:
-            - "3306:3306"
-        networks:
-            - inception
-        restart: unless-stopped
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    networks:
+      - inception
+    restart: unless-stopped
 
 volumes:
-    WP:
-        driver: local
-        driver_opts:
-            o: bind
-            type: none
-            device: /home/adrgonza/data/wp
-    DB:
-        driver: local
-        driver_opts:
-            o: bind
-            type: none
-            device: /home/adrgonza/data/db
+  WP:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/adrgonza/data/wp
+  DB:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/adrgonza/data/db
 
 networks:
     inception:
         driver: bridge
-
-#depends_on
-
-#Compose crea servicios en orden de dependencia. En el siguiente ejemplo, dby redisse crean antes de web.
-#Compose elimina los servicios en orden de dependencia. En el siguiente ejemplo, webse elimina antes dby redis.
-#Compose garantiza que los servicios de dependencia se hayan iniciado antes de iniciar un servicio dependiente. Compose espera a que los servicios de dependencia estén "listos" antes de iniciar un servicio dependiente.
-
-#restart: Cuando se establece en true, Compose reinicia este servicio después de actualizar el servicio de dependencia. Esto se aplica a un reinicio explícito controlado por una operación de composición y excluye el reinicio automático por parte del tiempo de ejecución del contenedor después de que el contenedor muere.

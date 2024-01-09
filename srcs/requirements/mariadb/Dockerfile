@@ -1,5 +1,10 @@
-FROM alpine:3.17
+FROM alpine:3.18
 
 RUN apk add --no-cache mariadb mariadb-client
 
-EXPOSE 3306
+COPY conf/my.cnf /etc/mysql/my.cnf
+COPY tools/tools.sh ./
+
+RUN chmod 777 tools.sh
+
+CMD ["./tools.sh"]
