@@ -13,4 +13,4 @@ COPY tools/tools.sh ./
 
 RUN chmod 777 tools.sh
 
-CMD [./tools.sh]
+CMD ["./tools.sh"]
