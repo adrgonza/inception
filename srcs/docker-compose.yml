@@ -13,7 +13,7 @@ services:
     depends_on:
       - wordpress
     restart: unless-stopped
-  
+ 
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
@@ -22,6 +22,8 @@ services:
     depends_on:
       - mariadb
     restart: unless-stopped
+    env_file:
+      - .env
 
   mariadb:
     container_name: mariadb
@@ -29,6 +31,8 @@ services:
     networks:
       - inception
     restart: unless-stopped
+    env_file:
+      - .env
 
 volumes:
   WP:

@@ -1,7 +1,7 @@
 all: prune build
 
 build:
-	docker-compose -f ./srcs/docker-compose.yml up -d --build
+	docker-compose -f ./srcs/docker-compose.yml up  --build
 #-d or --detach flag: Runs the containers in the background.
 #--build flag: Forces a rebuild of the Docker images specified in the docker-
 
