@@ -9,7 +9,7 @@ services:
     networks:
       - inception
     volumes:
-      - WP
+      - "WP:/wordpress"
     depends_on:
       - wordpress
     restart: unless-stopped
@@ -24,6 +24,8 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    volumes:
+      - "WP:/wordpress"
 
   mariadb:
     container_name: mariadb

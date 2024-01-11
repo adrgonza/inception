@@ -22,7 +22,7 @@ echo "FLUSH PRIVILEGES;" >> "mysql-init.sql"
 mysql -u root -p"$MYSQL_ROOT_PASSWORD" < mysql-init.sql
 
 # Remove sensitive information
-#rm -f mysql-init.sql
+rm -f mysql-init.sql
 
 # Stop MariaDB server
 mysqladmin -u root -p"$MYSQL_ROOT_PASSWORD" shutdown
