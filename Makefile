@@ -1,6 +1,7 @@
 all: prune build
 
 build:
+	mkdir /home/adrgonza/data/wp || true
 	docker-compose -f ./srcs/docker-compose.yml up  --build
 #-d or --detach flag: Runs the containers in the background.
 #--build flag: Forces a rebuild of the Docker images specified in the docker-
@@ -17,6 +18,7 @@ stop:
 
 clean:
 	docker rm -f $$(docker ps -a -q)
+	rm -rf /home/adrgonza/data/wp
 
 cimages:	
 	docker rmi $$(docker images -a -q)
