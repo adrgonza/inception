@@ -14,7 +14,7 @@ stop:
 	docker stop $$(docker ps -a -q)
 
 clean:
-	docker rm -f $$(docker ps -a -q)
+	docker rm -f $$(docker ps -a -q) || true
 	rm -rf /home/adrgonza/data/wp /home/adrgonza/data/db
 
 cimages:	
@@ -26,4 +26,4 @@ images:
 status:
 	docker ps -a
 
-.PHONY: build prune clean images status
+.PHONY: build down  prune stop clean cimages images status
