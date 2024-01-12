@@ -33,7 +33,7 @@ services:
     networks:
       - inception
     volumes:
-      - "DB:/mariadb"
+      - "DB:/var/lib/mysql"
     restart: unless-stopped
     env_file:
       - .env

@@ -28,4 +28,4 @@ rm -f mysql-init.sql
 mysqladmin -u root -p"$MYSQL_ROOT_PASSWORD" shutdown
 
 # Start MariaDB server with binding to all addresses
-mysqld --datadir="/var/lib/mysql" --socket="/var/run/mysqld/mysqld.sock" --user=mysql
+exec mysqld --datadir="/var/lib/mysql" --socket="/var/run/mysqld/mysqld.sock" --user=mysql
