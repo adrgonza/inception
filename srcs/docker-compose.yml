@@ -32,6 +32,8 @@ services:
     build: ./requirements/mariadb
     networks:
       - inception
+    volumes:
+      - "DB:/mariadb"
     restart: unless-stopped
     env_file:
       - .env
